@@ -30,7 +30,7 @@ const Map = () => {
     map.current.addControl(new mapboxgl.NavigationControl());
 
     map.current.on('load', () => {
-      fetch('/data/caps_updated.csv')
+      fetch('public/data/caps_updated.csv')
       .then(res => res.arrayBuffer())
       .then(buffer => {
         const decodedCSV = new TextDecoder('utf-16').decode(buffer);
