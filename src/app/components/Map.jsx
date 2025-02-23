@@ -33,7 +33,7 @@ const Map = () => {
     map.current.addControl(new mapboxgl.NavigationControl());
 
     // Fetch the isochrone GeoJSON data
-    fetch('./data/isochrones.geojson')
+    fetch('/data/isochrones.geojson')
       .then(res => res.arrayBuffer())
       .then(buffer => {
       const decodedData = new TextDecoder('utf-16').decode(buffer);
@@ -43,7 +43,7 @@ const Map = () => {
 
     map.current.on('load', () => {
       // Fetch and parse the CSV file
-      fetch('./data/caps_final.csv')
+      fetch('/data/caps_final.csv')
         .then(res => res.arrayBuffer())
         .then(buffer => {
           const decodedCSV = new TextDecoder('utf-16').decode(buffer);
