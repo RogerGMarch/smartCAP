@@ -26,7 +26,7 @@ const HealthcareFacilityMap = () => {
     async function fetchData() {
       console.log('Starting fetch of facilities data.');
       try {
-        const res = await fetch('/data/caps_final.csv');
+        const res = await fetch('public/data/caps_final.csv');
         console.log('Fetch response received.');
         const buffer = await res.arrayBuffer();
         console.log('Array buffer obtained from response.');
