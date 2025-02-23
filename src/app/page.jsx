@@ -6,6 +6,7 @@ import { Card, CardHeader, CardTitle, CardContent } from '@/app/components/ui/ca
 import { Badge } from '@/app/components/ui/badge';
 import { Clock, Users, Phone, MapPin, Menu } from 'lucide-react';
 
+
 const Map = dynamic(() => import('./components/Map'), {
   ssr: true,
 });
@@ -26,7 +27,7 @@ const HealthcareFacilityMap = () => {
     async function fetchData() {
       console.log('Starting fetch of facilities data.');
       try {
-        const res = await fetch('public/data/caps_final.csv');
+        const res = await fetch('/data/caps_final.csv');
         console.log('Fetch response received.');
         const buffer = await res.arrayBuffer();
         console.log('Array buffer obtained from response.');

@@ -3,8 +3,8 @@ import mapboxgl from 'mapbox-gl';
 import Papa from 'papaparse';
 import 'mapbox-gl/dist/mapbox-gl.css';
 
-mapboxgl.accessToken = process.env.NEXT_PUBLIC_MAPBOX_TOKEN;
-
+const NEXT_PUBLIC_MAPBOX_TOKEN = "pk.eyJ1Ijoicm9jaG90ZSIsImEiOiJjbHRrYmY0Z3EwcTV4Mmlxd2o0OW90Ymo4In0.QSmkyWVFeeRbn8Np6Om-UA";
+mapboxgl.accessToken = NEXT_PUBLIC_MAPBOX_TOKEN
 const Map = () => {
   const mapContainer = useRef(null);
   const map = useRef(null);
@@ -30,7 +30,7 @@ const Map = () => {
     map.current.addControl(new mapboxgl.NavigationControl());
 
     map.current.on('load', () => {
-      fetch('public/data/caps_updated.csv')
+      fetch('/data/caps_final.csv')
       .then(res => res.arrayBuffer())
       .then(buffer => {
         const decodedCSV = new TextDecoder('utf-16').decode(buffer);
